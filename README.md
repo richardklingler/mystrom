@@ -27,3 +27,16 @@ Following GPIO signals from the ESP32-W0 chip are used on myStrom Wifi 2:
     - GPIO23   Pushbutton on the side
     - GPIO27   Relay output
 
+### myStrom ESP32 board programming header
+
+On the ESP32 board is an unpopulated 2x9 header which can be used for flashing the ESP32 via UART. You only need VCC, GND, TXD, RXD and GPIO0 as usual:
+
+    GND  [] ()  TXD
+    GND  () ()  RXD
+    GND  () ()  GPIO0
+    GND  () ()
+    GND  () ()
+    VCC  () ()
+    VCC  () ()
+         () ()
+         () ()
