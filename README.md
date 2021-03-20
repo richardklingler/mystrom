@@ -41,3 +41,5 @@ On the ESP32 board is an unpopulated 2x9 header which can be used for flashing t
     VCC  () ()
          () ()
          () ()
+
+![Ready for flashing](images/mystrom_flashing.jpg)
