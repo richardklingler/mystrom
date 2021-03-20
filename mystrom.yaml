@@ -1,0 +1,87 @@
+esphome:
+  name: mystrom-01
+  platform: ESP32
+  board: esp32doit-devkit-v1
+
+wifi:
+  ssid: "WiFiSSID"
+  password: "WiFiPassword"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Mystrom Fallback Hotspot"
+    password: "password"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+i2c:
+  sda: 22
+  scl: 19
+  scan: True
+
+switch:
+  - platform: gpio
+    name: "myStrom Relay"
+    pin: 27
+    icon: "mdi:power-socket-fr"
+    id: mystrom_relay
+    on_turn_on:
+      - switch.turn_on: mystrom_led
+    on_turn_off:
+      - switch.turn_off: mystrom_led
+# Front red LED
+  - platform: gpio
+    id: mystrom_red_led
+    pin:
+      number: 16
+      inverted: no
+# Front white LED
+  - platform: gpio
+    id: mystrom_led
+    pin:
+      number: 17
+      inverted: yes
+
+binary_sensor:
+# Bottom push button
+  - platform: gpio
+    pin:
+      number: 18
+      inverted: yes
+    name: "myStrom Button"
+    filters:
+      - delayed_on: 20ms
+    on_press:
+      then:
+        - switch.toggle: mystrom_relay
+# Side push button
+  - platform: gpio
+    pin:
+      number: 23
+      inverted: yes
+    name: "myStrom Side Button"
+    filters:
+      - delayed_on: 20ms
+
+sensor:
+# Pulses from AD71056 energy meter
+  - platform: pulse_counter
+    pin: 4
+    name: "myStrom Power"
+    unit_of_measurement: 'W'
+    update_interval: 20s
+    filters:
+      - multiply: 0.036
+  - platform: tmp102
+    name: "myStrom Temperature"
+    update_interval: 20s
+    filters:
+      - multiply: 0.623
