@@ -43,3 +43,15 @@ On the ESP32 board is an unpopulated 2x9 header which can be used for flashing t
          () ()
 
 ![Ready for flashing](images/mystrom_flashing.jpg)
+
+### Temperature sensor
+
+The onboard temperature sensor repsonds to address 0x48 and has the label "LDEA" onits SOT23-5 package.
+I am not really sure what device it is actually...but it reports a temperature when using the TMP102 component from ESPHome.
+
+Normally it reports a high temperature and I am not sure if the PCB is really that warm. But I added a filter section to correct the value from the sensor by a factor:
+
+    filters:
+      - multiply: 0.623
+
+You might to adjust this value. On the other hand, what sense does it make to get the temperature reading from a PCB (o;
