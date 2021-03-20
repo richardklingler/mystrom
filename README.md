@@ -13,6 +13,7 @@ All my reverse engineering work is paid with my low little budget, so every dona
 
 #### 20.03.2021
 
+- Added initial YAML file
 - Initial repository
 
 ### myStrom GPIO mapping
