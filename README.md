@@ -46,12 +46,10 @@ On the ESP32 board is an unpopulated 2x9 header which can be used for flashing t
 
 ### Temperature sensor
 
-The onboard temperature sensor repsonds to address 0x48 and has the label "LDEA" onits SOT23-5 package.
+The onboard temperature sensor repsonds to address 0x48 and has the label "LDEA" on its SOT23-5 package.
 I am not really sure what device it is actually...but it reports a temperature when using the TMP102 component from ESPHome.
 
-Normally it reports a high temperature and I am not sure if the PCB is really that warm. But I added a filter section to correct the value from the sensor by a factor:
+Normally it reports a temperature which is around 10 degress higher than the ambient temperature. Not sure what the purpose
+is of this sensor really. myStrom advertises it as additional feature for monitoring room temperatures.
 
-    filters:
-      - multiply: 0.623
-
-You might to adjust this value. On the other hand, what sense does it make to get the temperature reading from a PCB (o;
+Still you might use it as a thermal protection as the sensor reports a much higher temeprature when you switch on a load.

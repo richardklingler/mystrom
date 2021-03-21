@@ -83,5 +83,3 @@ sensor:
   - platform: tmp102
     name: "myStrom Temperature"
     update_interval: 20s
-    filters:
-      - multiply: 0.623
