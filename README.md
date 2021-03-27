@@ -79,7 +79,7 @@ Following pins are also exposed as test pads. As the WiFi plug uses the same GPI
 
 #### myStrom WiFI PIR GPIO mapping
 
-The WiFi PIR sensor uses a second PCB where the PIR and other sensors are mounted. Also 2 LEDs and a pushbutton.
+The WiFi PIR sensor uses a second PCB where the PIR and other sensors are mounted. Also 2 LEDs and a pushbutton. I2C is used for the temperatue and ambient light sensor.
 
     1   GND
     2   VCC
