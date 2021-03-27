@@ -70,10 +70,25 @@ Following test pads have been identified on the ESP32 main board:
     RXD
     GPIO0
 
-Following pins are also exposed as test pads, so I assume those are for the PIR and ambient light sensor:
+Following pins are also exposed as test pads. As the WiFi plug uses the same GPIOs, i consider them to be used as well as I2C:
 
     GPIO19
     GPIO22
 
 #### myStrom WiFI PIR GPIO mapping
+
+The WiFi PIR sensor uses a second PCB where the PIR and other sensors are mounted. Also 2 LEDs and a pushbutton.
+
+    1   GND
+    2   VCC
+    .
+    .
+    3   GND
+    4   32K_XN pin
+    5   Unknown?
+    6   GPIO16, LED D2
+    7   GPIO22, SDA
+    8   GPIO17, LED D1
+    9   GPIO19, SCL
+    10  MTMS/GPIO14, Pushbutton
 
