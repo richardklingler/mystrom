@@ -12,8 +12,9 @@ All my reverse engineering work is paid with my low little budget, so every dona
 
 ### Update
 
-#### 26.03.2021
+#### 27.03.2021
 
+- Added myStrom PIR GPIO information
 - Added myStrom WiFi PIR sensor ESP32 board image
 - Added initial YAML file
 - Initial repository
