@@ -2,7 +2,6 @@
 Make myStrom WiFi devices run ESPHome firmware
 
 ![myStrom Wifi Plug 2](images/mystrom_open.jpg)
-![myStrom Wifi PIR](images/mystrom_pir.jpg)
 
 ### Sponsoring
 
@@ -61,6 +60,8 @@ Still you might use it as a thermal protection as the sensor reports a much high
 
 ### myStrom WiFi PIR
 
+![myStrom Wifi PIR](images/mystrom_pir.jpg)
+
 #### myStrom WiFI PIR test points
 
 Following test pads have been identified on the ESP32 main board:
@@ -85,11 +86,10 @@ The WiFi PIR sensor uses a second PCB where the PIR and other sensors are mounte
     .
     .
     3   GND
-    4   32K_XN pin
-    5   Unknown?
-    6   GPIO16, LED D2
+    4   GPIO33, PIR Sensor
+    5   -
+    6   GPIO16, LED Red
     7   GPIO22, SDA
-    8   GPIO17, LED D1
+    8   GPIO17, LED White
     9   GPIO19, SCL
-    10  MTMS/GPIO14, Pushbutton
-
+    10  GPIO14, Pushbutton

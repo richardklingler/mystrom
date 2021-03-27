@@ -1,0 +1,71 @@
+esphome:
+  name: mystrom_pir
+  platform: ESP32
+  board: esp32doit-devkit-v1
+
+wifi:
+  ssid: "WiFiSSID"
+  password: "WiFiPassword"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Mystrom Pir Fallback Hotspot"
+    password: "password"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+i2c:
+  sda: 22
+  scl: 19
+  scan: True
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO14
+      inverted: yes
+      mode: INPUT_PULLUP
+    name: "WiFi PIR Button"
+    filters:
+      - delayed_on: 20ms
+  - platform: gpio
+    pin:
+      number: GPIO33
+      inverted: no
+    name: "WiFi PIR Sensor"
+    device_class: motion
+    filters:
+      - delayed_off: 15s
+
+switch:
+  - platform: gpio
+    id: pir_led_white
+    name: "WiFi PIR LED White"
+    pin:
+      number: 17
+      inverted: yes
+  - platform: gpio
+    id: pir_led_red
+    name: "WiFi PIR LED Red"
+    pin:
+      number: 16
+
+sensor:
+  - platform: tmp102
+    name: "PIR Temperature"
+    update_interval: 30s
+  - platform: dsl2561
+    name: "WiFi PIR Lux"
+    address: 0x39
+    update_interval: 20s
+    gain: 16x
+    is_cs_package: False
+    integration_time: 101ms
